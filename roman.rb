@@ -1,0 +1,2 @@
+M = 'land'
+o = 'water'
