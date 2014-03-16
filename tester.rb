@@ -16,7 +16,8 @@ puts "The game is called"
 puts ""
 puts '"dad,..when he\'s grumpy"'.center(50).upcase
 puts ""
-poss_resp2 = ['The game is primed and ready!','Would you rather play something else?','I know we can\'t compete with the PS4, but we cant try!']
+poss_resp2 = ['The game is primed and ready!','Would you rather play something else?',
+  'I know we can\'t compete with the PS4, but we cant try!']
 while true
 	puts "Ready to play?"
 	input2 = gets.chomp
