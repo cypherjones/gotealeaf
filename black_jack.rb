@@ -8,11 +8,12 @@ def calculate_total(cards)
   if value == 'Ace'
     total += 11
   elsif value.to_i == 0
-    total += + 10
+    total += 10
   else
     total += value.to_i
     end
   end
+
 # Remember the aces
   
   cal.select{|e| e == 'Ace'}.count.times do
@@ -24,23 +25,11 @@ end
 
 system('clear')
 
-puts "Ready to Play Blackjack, Jack?"
-puts "==> Y/N"
-#while true
- # greeting = gets.chomp.capitalize
- # if greeting == 'Y'
- #   sleep(2)
- #   puts "Great! Let's play."
- #   break
-  #else
-  #  puts "Well, I'll deal and see how you feel."
- #   break
- # end
-#end
-
+puts "It's time to play Blackjack, Jack!"
+puts 
 puts "I'll deal."
 
-sleep(3)
+sleep(2)
 system('clear')
 #set up the deck
 suits = ['Spades', 'Diamonds', 'Hearts', 'Clubs']
@@ -64,7 +53,8 @@ playertotal = calculate_total(playercards)
 dealertotal = calculate_total(dealercards)
 
 #decide whether to hit (h) or stay (s) the cards delt
-
+puts "Ok, let's take a look at the cards."
+system('clear')
 puts "You have #{playercards[0]} and #{playercards[1]} for a total of #{playertotal}." 
 puts "The dealer has #{dealercards[0]} and #{dealercards[1]} for a total of #{dealertotal}"
 
@@ -84,21 +74,24 @@ while playertotal < 21
   puts
   puts 'Hit or Stay? "h") for hit or "s") for stay?'
   hit_or_stay = gets.chomp
+  system('clear')
   
   if !['h','s'].include?(hit_or_stay)
-    puts "Error: you must enter 1 or 2" 
+    puts "Error: you must enter h or s" 
     next
   end
 
   if hit_or_stay == 's'
     puts "Stay it is."
+    sleep(1)
+    system('clear')
     break
   end
 
   hit_or_stay == 'h'
   new_card = deck.pop
   playercards << new_card
-  puts "Looks like you got #{new_card}"
+  puts "Here is your new card: #{new_card}"
   playertotal = calculate_total(playercards)
   puts "Now you have #{playertotal}"
   
@@ -127,6 +120,7 @@ while dealertotal <= 17
 
   if dealertotal < 21 && dealertotal > 17
     puts "Looks like the house is going to stay."
+    system('clear')
     break
   end
 
@@ -142,13 +136,35 @@ while dealertotal <= 17
 
 end
 
-# Who wins
+# Who wins / compare hands
+
+
+puts "Let's take a look at the hands."
+
+sleep(1)
+
+puts "Dealers cards "
+dealercards.each do |card|
+  puts "=> #{card}"
+end
+puts
+puts "For a total of #{dealertotal}"
+puts
+puts "Players cards "
+playercards.each do |card|
+  puts "=> #{card}"
+end
+puts
+puts "For a total of #{playertotal}"
+puts
 
 if dealertotal > playertotal
   puts "Damn, the house wins. Better luck next time."
   exit
-else
+elsif dealertotal < playertotal
   puts "Nicely done!. You beat the house! Keep it up."
+else
+  puts "Stink, it's a tie."
 end
 exit
 
