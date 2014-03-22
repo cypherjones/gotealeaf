@@ -26,10 +26,11 @@ end
 system('clear')
 
 puts "It's time to play Blackjack, Jack!"
+sleep(2)
 puts 
 puts "I'll deal."
 
-sleep(2)
+sleep(3)
 system('clear')
 #set up the deck
 suits = ['Spades', 'Diamonds', 'Hearts', 'Clubs']

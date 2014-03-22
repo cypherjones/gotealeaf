@@ -1,3 +1,7 @@
+puts "Add a year, any year.... in the YYYY format."
+
+ur_year = gets.chomp.to_i
+
 def old_roman_numeral num 
   roman = ''
 
@@ -10,4 +14,4 @@ def old_roman_numeral num
   roman = roman + 'I' * (num % 5    /   1)
   roman 
 end
-puts(old_roman_numeral(2011))
+puts(old_roman_numeral(ur_year))
