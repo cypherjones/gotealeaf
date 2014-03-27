@@ -24,7 +24,7 @@ class Dragon
   def put_to_bed
     puts "You put #{@name} to bed."
     @asleep = true
-    1.times do 
+    2.times do 
       if @asleep
         passage_of_time
       end
@@ -67,8 +67,8 @@ class Dragon
 
   def passage_of_time
     if @stuff_in_belly > 0
-      @stuff_in_belly     = @stuff_in_belly     - 1
-      @stuff_in_intestine = @stuff_in_intestine + 1
+      @stuff_in_belly     = @stuff_in_belly     - 5
+      @stuff_in_intestine = @stuff_in_intestine + 5
     else
       if @asleep
         @asleep = false
